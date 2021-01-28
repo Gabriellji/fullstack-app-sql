@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const db = require('./database/config')
+require('./auth')
 
 const app = express()
 
