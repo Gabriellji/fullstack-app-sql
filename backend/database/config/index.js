@@ -1,4 +1,5 @@
 require('dotenv').config()
+const chalk = require('chalk')
 
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_DIALECT } = process.env
 const Sequelize = require('sequelize')
@@ -11,7 +12,7 @@ const connector = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
 const authenticate = async (connector) => {
     try {
         await connector.authenticate()
-        console.log('We are Connected!')
+        console.log(chalk.blue('We are Connected!'))
     } catch(err) {
         console.log(`Something failed on the DB connection: ${err}`)
     }
