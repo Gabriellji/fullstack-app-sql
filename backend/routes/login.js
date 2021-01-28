@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
       lastname: user.lastname,
       email: user.email
     }
-    return res.status(200).send({securedFinalUser, token})
+    return res.status(200).send({ securedFinalUser, token })
   })(req, res, next)
 })
 

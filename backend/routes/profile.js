@@ -1,9 +1,8 @@
-const express = require('express')
-const app = require('../app')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const passport = require('passport')
 
-router.get('/', (req, res) => {
-    res.status(200).send('Your profile')
+router.get('/', passport.authenticate('jwt', {session:false}), (req, res) => {
+  res.status(200).send({ isTokenVerified: true})
 })
-
-module.exports = router
+module.exports = router;
