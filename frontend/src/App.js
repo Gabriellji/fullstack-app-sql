@@ -8,14 +8,16 @@ import Profile from "./components/protected-components/Profile";
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Register} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/profile" component={Profile} />
-      </Switch>
-    </Router>
+    <AuthContextProvider>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Register} />
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/profile" component={Profile} />
+        </Switch>
+      </Router>
+    </AuthContextProvider>
   );
 };
 
