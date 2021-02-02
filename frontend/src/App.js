@@ -1,24 +1,22 @@
 import AuthContextProvider from "./context/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import NavBar from "./components/navigation/Navbar";
-import Register from "./components/forms/register/Register";
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./components/navigation/Navbar";
+import Registration from "./components/forms/registration/Registration";
 import PrivateRoute from "./components/protected-routes/PrivateRoute";
 import Login from "./components/forms/login/Login";
 import Profile from "./components/protected-components/Profile";
 
-const App = () => {
-  return (
+const App = () => (
+  <section className="App">
     <AuthContextProvider>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Register} />
-          <Route path="/login" component={Login} />
-          <PrivateRoute path="/profile" component={Profile} />
-        </Switch>
-      </Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Registration} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/profile" component={Profile} />
+      </Switch>
     </AuthContextProvider>
-  );
-};
+  </section>
+);
 
 export default App;

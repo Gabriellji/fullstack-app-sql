@@ -1,5 +1,5 @@
 const postRoute = async (path, userObj) => {
-  const res = await fetch(path, {
+  const response = await fetch(path, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -7,8 +7,22 @@ const postRoute = async (path, userObj) => {
     body: JSON.stringify(userObj),
   });
 
-  const data = await res.json();
+  const data = await response.json();
+
+  return data;
+};
+const getRoute = async (path, token) => {
+  const response = await fetch(path, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  });
+
+  const data = await response.json();
+
   return data;
 };
 
-export { postRoute };
+export { postRoute, getRoute };
