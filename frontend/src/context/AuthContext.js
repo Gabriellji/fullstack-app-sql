@@ -57,6 +57,10 @@ const AuthContextProvider = (props) => {
     });
   };
 
+  const logoutUser = async () => {
+    await setState(initialState);
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -65,6 +69,7 @@ const AuthContextProvider = (props) => {
         submitRegistrationForm,
         submitLoginForm,
         authenticateUser,
+        logoutUser,
       }}
     >
       {props.children}
